@@ -1,3 +1,4 @@
+require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
@@ -5,8 +6,6 @@ const helmet = require("helmet");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const db = require("./backend_database");
-
-require("dotenv").config();
 
 const app = express();
 
@@ -286,6 +285,13 @@ app.post("/api/missions", authenticate, adminOnly, async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`EcoClick API funcionando na porta ${PORT}`);
-});
+db.initDatabase()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Servidor rodando na porta ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Erro ao iniciar o banco de dados:", error);
+    process.exit(1);
+  });
