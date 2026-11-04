@@ -5,7 +5,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const db = require("./backend_database");
+const db = require("../../backend_database");
 
 const app = express();
 
