@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node backend_server.js"
+    "start": "node backend/backend/backend_server.js"
   },
   "engines": {
     "node": ">=20"
