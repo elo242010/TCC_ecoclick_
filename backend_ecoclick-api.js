@@ -1,5 +1,5 @@
 (function () {
-  const API_URL = "https://SEU-SERVICO.onrender.com";
+  const API_URL = "https://ecoclick-api.onrender.com";
 
   window.EcoAPI = {
     async request(endpoint, options = {}) {
